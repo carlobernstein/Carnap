@@ -1,4 +1,5 @@
 packages: ./Carnap
           ./Carnap-Client
           ./Carnap-Server
+          ./Carnap-CLI
 

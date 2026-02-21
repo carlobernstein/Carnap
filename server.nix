@@ -43,6 +43,9 @@ newpkgs: oldpkgs: {
   Carnap-Client = disableLibraryProfiling
                     (oldpkgs.callCabal2nix "Carnap-Client" (gitignoreSource ./Carnap-Client) { });
 
+  Carnap-CLI = justStaticExecutables
+                 (dontCheck (oldpkgs.callCabal2nix "Carnap-CLI" (gitignoreSource ./Carnap-CLI) { }));
+
   Carnap-Server = justStaticExecutables ((overrideCabal
     (oldpkgs.callCabal2nix "Carnap-Server" (gitignoreSource ./Carnap-Server) { })
     (old: let book = ./Carnap-Book; in {

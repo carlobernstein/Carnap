@@ -72,11 +72,12 @@ let
   in rec {
     inherit nixpkgs nixpkgs-stable client truth-tree;
     server = nixpkgs.haskell.packages."${ghcVer}".Carnap-Server;
+    cli = nixpkgs.haskell.packages."${ghcVer}".Carnap-CLI;
 
-    # a ghc-based shell for development of Carnap and Carnap-Server
+    # a ghc-based shell for development of Carnap, Carnap-Server, and Carnap-CLI
     # Carnap-GHCJS currently broken on ghc, see `server.nix` for details
     ghcShell = nixpkgs.haskell.packages."${ghcVer}".shellFor {
-      packages = p: [ p.Carnap p.Carnap-Client p.Carnap-Server ];
+      packages = p: [ p.Carnap p.Carnap-Client p.Carnap-Server p.Carnap-CLI ];
       withHoogle = true;
       buildInputs = devtools { isGhcjs = false; };
     };
