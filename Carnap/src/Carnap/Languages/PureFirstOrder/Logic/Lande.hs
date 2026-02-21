@@ -128,4 +128,9 @@ landeQuantCalc = mkNDCalc
     , ndParseForm = landeQuantFormulaParser
     , ndParseSeq = parseSeqOver landeQuantFormulaParser
     , ndNotation = landeQuantNotation . dropOuterParens
+    , ndRuleNames = ["∧I","^I","/\\I","∧E","^E","/\\E","→E","->E"
+                    ,"¬¬E","~~E","--E","↔I","<->I","↔E","<->E","∨I"
+                    ,"vI","\\/I","∨E","vE","\\/E","→I","->I","¬I"
+                    ,"~I","-I","A"
+                    ,"AI","∀I","AE","∀E","EE","∃E","EI","∃I","=I","=E"]
     }

@@ -267,7 +267,8 @@ zachPropEqCalc = mkNDCalc
     , ndProcessLineMemo = Just hoProcessLineHilbertImplicitMemo
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = (purePropFormulaParser thomasBolducZachOpts)
-    , ndNotation = dropBotRight . dropOuterParens 
+    , ndNotation = dropBotRight . dropOuterParens
+    , ndRuleNames = ["Comm","DN","Cond","Bicond","DeM","Assoc","Abs","Id","Dist","PR","Simp"]
     }
 
 dropBotRight s = case (break (== '⊢') s) of

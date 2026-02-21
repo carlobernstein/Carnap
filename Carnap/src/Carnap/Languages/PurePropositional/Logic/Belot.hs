@@ -321,6 +321,9 @@ belotSDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser belotOpts)
     , ndParseForm = purePropFormulaParser belotOpts
     , ndNotation = belotNotation
+    , ndRuleNames = ["(&I)","(/\\I)","(∧I)","(&E)","(/\\E)","(∧E)","(CI)","(->I)","(→I)","(>I)","(⊃I)","(→E)","(⊃E)","(CE)","(->E)"
+                    ,"(→E)","(>E)","(~I)","(-I)","(¬I)","(~E)","(-E)","(¬E)","(vI)","(\\/I)","(∨I)","(vE)","(\\/E)","(∨E)","(BI)","(<->I)","(<>I)","(↔I)"
+                    ,"(≡I)","(BE)","(<->E)","(<>E)","(↔E)","(≡E)","R","A","PR","A/<name>"]
     }
 
 belotSDPlusCalc = mkNDCalc 
@@ -331,4 +334,5 @@ belotSDPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser belotOpts)
     , ndParseForm = purePropFormulaParser belotOpts
     , ndNotation = belotNotation
+    , ndRuleNames = ndRuleNames belotSDCalc ++ ["(MT)","(HS)","(DS)","(Com)","(Assoc)","(Impl)","(DN)","(DeM)","(Idem)","(Trans)","(Exp)","(Dist)","(Equiv)"]
     }

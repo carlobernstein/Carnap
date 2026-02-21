@@ -330,6 +330,14 @@ hardegreeWTLCalc = mkNDCalc
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"WT(0)","WT(~)","WT(-)","WT(/\\)","WT(&)","WT(\\/)","WT(v)","WT(->)","WT(<->)"
+                    ,"WT(/)","WT(A)","WT(E)","WT([])","WT(<>)","EI","AO","UD","ED","QN"
+                    ]
     }
 
 ------------------------------------
@@ -419,13 +427,20 @@ parseHardegreeL = (map MoPL <$> parseHardegreeModalProp)
 parseHardegreeLProof ::  RuntimeDeductionConfig AbsoluteModalPropLexicon (Form Bool) -> String -> [DeductionLine HardegreeL AbsoluteModalPropLexicon (Form Bool)]
 parseHardegreeLProof ders = toDeductionHardegree parseHardegreeL absoluteModalPropFormulaParser
 
-hardegreeLCalc = mkNDCalc 
+hardegreeLCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeLProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ]
     }
 
 -----------------------------------
@@ -487,13 +502,20 @@ instance Inference HardegreeK AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeKCalc = mkNDCalc 
+hardegreeKCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeKProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ]
     }
 
 --------------------
@@ -549,13 +571,21 @@ instance Inference HardegreeD AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeDCalc = mkNDCalc 
+hardegreeDCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeDProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(d)","<>I(d)"
+                    ]
     }
 
 --------------------
@@ -609,13 +639,21 @@ instance Inference HardegreeT AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeTCalc = mkNDCalc 
+hardegreeTCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeTProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(t)","<>I(t)"
+                    ]
     }
 
 --------------------
@@ -677,13 +715,21 @@ instance Inference HardegreeB AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeBCalc = mkNDCalc 
+hardegreeBCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeBProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(b)","<>I(b)","[]O(t)","<>I(t)"
+                    ]
     }
 
 --------------------
@@ -740,13 +786,21 @@ instance Inference HardegreeFour AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeFourCalc = mkNDCalc 
+hardegreeFourCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeFourProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(4)","<>I(4)"
+                    ]
     }
 
 --------------------
@@ -802,13 +856,21 @@ instance Inference HardegreeFive AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeFiveCalc = mkNDCalc 
+hardegreeFiveCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeFiveProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(5)","<>I(5)"
+                    ]
     }
 
 
@@ -890,13 +952,21 @@ instance Inference HardegreeS5 AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeS5Calc = mkNDCalc 
+hardegreeS5Calc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeS5Proof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(5)","<>I(5)","[]O(t)","<>I(t)","[]O(b)","<>I(b)","[]O(4)","<>I(4)"
+                    ]
     }
 
 ---------------------
@@ -958,11 +1028,19 @@ instance Inference HardegreeS4 AbsoluteModalPropLexicon (Form Bool) where
                                                 _ -> Nothing
          globalRestriction _ _ _ = Nothing
 
-hardegreeS4Calc = mkNDCalc 
+hardegreeS4Calc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeS4Proof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = absoluteModalPropSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"[]O(4)","<>I(4)","[]O(t)","<>I(t)"
+                    ]
     }

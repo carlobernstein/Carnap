@@ -8,7 +8,7 @@ import Carnap.Core.Data.Types (Form)
 import Carnap.Languages.PureFirstOrder.Syntax
 import Carnap.Languages.PureFirstOrder.Parser
 import qualified Carnap.Languages.PurePropositional.Logic as P
-import Carnap.Languages.PurePropositional.Logic.Hardegree (hardegreeNotation)
+import Carnap.Languages.PurePropositional.Logic.Hardegree (hardegreeNotation, hardegreeSL2006Calc)
 import Carnap.Calculi.Util
 import Carnap.Calculi.NaturalDeduction.Syntax
 import Carnap.Calculi.NaturalDeduction.Parser
@@ -205,6 +205,9 @@ hardegreePLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver hardegreePLFormulaParser
     , ndParseForm = hardegreePLFormulaParser
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
+    , ndRuleNames = ndRuleNames P.hardegreeSLCalc
+                    ++ ["∀I","AI","UD","∀O","AO","∃I","EI","∃O","EO","~∃O","-∃O","-EO","~EO"
+                       ,"~∀O","~AO","-∀O","-AO","QN"]
     }
 
 hardegreePL2006Calc = mkNDCalc
@@ -215,4 +218,7 @@ hardegreePL2006Calc = mkNDCalc
     , ndParseSeq = parseSeqOver hardegreePLFormulaParser
     , ndParseForm = hardegreePLFormulaParser
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
+    , ndRuleNames = ndRuleNames hardegreeSL2006Calc
+                    ++ ["UD","∀O","AO","∃I","EI","ED","∃D","∃O","EO","~∃O","-∃O","-EO","~EO"
+                       ,"~∀O","~AO","-∀O","-AO"]
     }

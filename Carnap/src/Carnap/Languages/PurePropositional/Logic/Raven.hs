@@ -265,7 +265,7 @@ ravenNotation x = case runParser altParser 0 "" x of
           fallback = do c <- anyChar 
                         return [c]
 
-ravenTFLCoreCalc = mkNDCalc 
+ravenTFLCoreCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseRavenTFLCoreProof
     , ndProcessLine = hoProcessLineFitch
@@ -273,9 +273,22 @@ ravenTFLCoreCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = purePropFormulaParser thomasBolducZachOpts
     , ndNotation = ravenNotation
+    , ndRuleNames = ["AS","PR"
+                    ,"&I","/\\I","∧I"
+                    ,"&E","/\\E","∧E"
+                    ,"~I","-I","¬I"
+                    ,"_|_I","!?I","⊥I"
+                    ,"_|_E","!?E","⊥E"
+                    ,"~E","-E","¬E"
+                    ,"->I",">I","=>I","→I"
+                    ,"->E",">E","->E","→E"
+                    ,"vI","\\/I","|I","∨I"
+                    ,"vE","\\/E","|E","∨E"
+                    ,"<->I","↔I","<->E","↔E"
+                    ,"R"]
     }
 
-ravenTFLCalc = mkNDCalc 
+ravenTFLCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseRavenTFLProof
     , ndProcessLine = hoProcessLineFitch
@@ -283,9 +296,10 @@ ravenTFLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = purePropFormulaParser thomasBolducZachOpts
     , ndNotation = dropOuterParens --to match the 2019 calc and make this basically a "Plus" version
+    , ndRuleNames = ndRuleNames ravenTFLCoreCalc ++ ["DS","MT","DNE","LEM","DeM"]
     }
 
-ravenTFL2019Calc = mkNDCalc 
+ravenTFL2019Calc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseRavenTFL2019Proof
     , ndProcessLine = hoProcessLineFitch
@@ -293,4 +307,5 @@ ravenTFL2019Calc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZach2019Opts)
     , ndParseForm = purePropFormulaParser thomasBolducZach2019Opts
     , ndNotation = dropOuterParens
+    , ndRuleNames = ndRuleNames ravenTFLCoreCalc
     }

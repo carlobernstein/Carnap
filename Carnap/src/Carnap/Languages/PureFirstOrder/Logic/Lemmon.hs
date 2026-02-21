@@ -117,4 +117,7 @@ lemmonQuantCalc = mkNDCalc
     , ndParseForm = lemmonQuantFormulaParser
     , ndParseSeq = parseSeqOver lemmonQuantFormulaParser
     , ndNotation = lemmonQuantNotation . dropOuterParens
+    , ndRuleNames = ["&I","&E","MPP","MTT","DN","Df.↔","Df.<->"
+                    ,"∨I","vI","\\/I","∨E","vE","\\/E","A","CP","RAA","Pr"
+                    ,"UI","UE","EE","EI","=I","=E"]
     }

@@ -103,7 +103,7 @@ bonevacQLNotation x = x
 parseBonevacQLProof :: RuntimeDeductionConfig PureLexiconFOL (Form Bool) -> String -> [DeductionLine BonevacQL PureLexiconFOL (Form Bool)]
 parseBonevacQLProof rtc = toDeductionHardegree (parseBonevacQL rtc) magnusFOLFormulaParser
 
-bonevacQLCalc = mkNDCalc 
+bonevacQLCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseBonevacQLProof
     , ndProcessLine = processLineHardegree
@@ -111,4 +111,10 @@ bonevacQLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver magnusFOLFormulaParser
     , ndParseForm = magnusFOLFormulaParser
     , ndNotation = bonevacQLNotation
+    , ndRuleNames = ["AIP","ACP","A","&I","/\\I","^I","&E","/\\E","^E"
+                    ,"~~","--","¬¬","DN","R","->E*","→E*","MT","->E","→E"
+                    ,"MP","<->I","↔I","-><->","→↔","<->E*","↔E*","<->E","↔E"
+                    ,"vI","\\/I","vE*","\\/E*","∨E*","DS","∨I","vE","\\/E"
+                    ,"∨E","~I","-I","¬I","~E","-E","¬E","PR"
+                    ,"∀E","AE","∃I","EI","∃E","EE","=I","=E"]
     }

@@ -135,7 +135,7 @@ coreSort r rtc = case r of
             | r `elem` ["<->E","↔E"]   ->  [BicoElim1, BicoElim2]
             | r == "R" ->  [Reiterate]
 
-gallowSLCalc = mkNDCalc 
+gallowSLCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseGallowSLCoreProof
     , ndProcessLine = hoProcessLineFitch
@@ -143,9 +143,13 @@ gallowSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZach2019Opts)
     , ndParseForm = purePropFormulaParser thomasBolducZach2019Opts
     , ndNotation = dropOuterParens
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","~I","-I","¬I"
+                    ,"~E","-E","¬E","->I",">I","=>I","→I","->E","=>E",">E","→E"
+                    ,"vI","\\/I","|I","∨I","vE","\\/E","|E","∨E","<->I","↔I","<->E"
+                    ,"↔E","R","⊥I","!?I","_|_I","⊥E","!?E","_|_E"]
     }
 
-gallowSLPlusCalc = mkNDCalc 
+gallowSLPlusCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseGallowSLProof
     , ndProcessLine = hoProcessLineFitch
@@ -153,4 +157,5 @@ gallowSLPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZach2019Opts)
     , ndParseForm = purePropFormulaParser thomasBolducZach2019Opts
     , ndNotation = dropOuterParens
+    , ndRuleNames = ndRuleNames gallowSLCalc ++ ["DS","MT","DNE","LEM","DeM"]
     }

@@ -201,4 +201,7 @@ hausmanSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser hausmanOpts)
     , ndParseForm = purePropFormulaParser hausmanOpts
     , ndNotation = hausmanSLNotation
+    , ndRuleNames = ["MP","Conj","MT","HS","DS","Add","CD","Simp"
+                    ,"DN","Contra","DeM","Impl","Exp","Comm","Taut","Assoc"
+                    ,"Equiv","Dist","CP","IP","AP","p"]
     }

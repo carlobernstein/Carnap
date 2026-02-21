@@ -114,7 +114,8 @@ goldfarbNDCalc = mkNDCalc
     , ndProcessLineMemo = Just hoProcessLineLemmonMemo
     , ndParseForm = goldfarbNDFormulaParser
     , ndParseSeq = parseSeqOver goldfarbNDFormulaParser
-    , ndNotation = goldfarbNDNotation 
+    , ndNotation = goldfarbNDNotation
+    , ndRuleNames = ["P","D","CQ","UI","TF","UG"]
     }
 
 goldfarbBrownNDCalc = goldfarbNDCalc { ndParseProof = parseGoldfarbBrownNDProof }
@@ -186,7 +187,8 @@ goldfarbNDPlusCalc = mkNDCalc
     , ndParseForm = goldfarbNDFormulaParser
     , ndParseSeq = parseSeqOver goldfarbNDFormulaParser
     , ndProcessLineMemo = Just hoProcessLineLemmonMemo
-    , ndNotation = goldfarbNDNotation 
+    , ndNotation = goldfarbNDNotation
+    , ndRuleNames = ndRuleNames goldfarbNDCalc ++ ["EG","EII","EIE"]
     }
 
 goldfarbBrownNDPlusCalc = goldfarbNDPlusCalc { ndParseProof = parseGoldfarbBrownNDPlusProof }

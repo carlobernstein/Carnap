@@ -122,5 +122,8 @@ cortensSLCalc = mkNDCalc
     , ndProcessLine = processLineFitch
     , ndProcessLineMemo = Nothing
     , ndNotation = cortensNotation
+    , ndRuleNames = ["AS","PR","/\\I","^I","∧I","/\\E","^E","∧E","->I","→I","->E","→E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","<->I","↔I"
+                    ,"<->E","↔E"]
     }
 

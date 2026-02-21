@@ -224,4 +224,7 @@ hurleySLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser hurleyOpts)
     , ndParseForm = purePropFormulaParser hurleyOpts
     , ndNotation = hurleySLNotation
+    , ndRuleNames = ["MP","MT","DS","HS","CD","Simp","Conj","Add"
+                    ,"DM","Com","Assoc","Dist","DN","Trans","Exp"
+                    ,"Impl","Taut","Equiv","CP","ACP","IP","AIP"]
     }

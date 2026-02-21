@@ -210,7 +210,7 @@ gregoryNotation x = case runParser altParser 0 "" x of
           fallback = do c <- anyChar 
                         return c
 
-gregorySDCalc = mkNDCalc 
+gregorySDCalc = mkNDCalc
     { ndRenderer = FitchStyle BergmanMooreAndNelsonStyle
     , ndParseProof = parseGregorySDProof
     , ndProcessLine = hoProcessLineFitch
@@ -218,9 +218,12 @@ gregorySDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gregoryOpts)
     , ndParseForm = purePropFormulaParser gregoryOpts
     , ndNotation = dropOuterParens . gregoryNotation
+    , ndRuleNames = ["Assumption","&I","/\\I","∧I","&E","/\\E","∧E","CI","=>I","->I","→I",">I","⊃I","→E","⊃E","CE","->E"
+                    ,"→E",">E","~I","-I","¬I","~E","-E","¬E","vI","\\/I","|I","∨I","vE","\\/E","|E","∨E","BI","<=>I","<>I","<->I"
+                    ,"↔I","BE","<->E","<>E","<=>E","↔E","A","P","R","A/<name>"]
     }
 
-gregorySDECalc = mkNDCalc 
+gregorySDECalc = mkNDCalc
     { ndRenderer = FitchStyle BergmanMooreAndNelsonStyle
     , ndParseProof = parseGregorySDEProof
     , ndProcessLine = hoProcessLineFitch
@@ -228,4 +231,5 @@ gregorySDECalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gregoryOpts)
     , ndParseForm = purePropFormulaParser gregoryOpts
     , ndNotation = dropOuterParens . gregoryNotation
+    , ndRuleNames = ndRuleNames gregorySDCalc ++ ["MT","HS","DS","Com","Assoc","Impl","DN","DeM","Idem","Trans","Exp","Dist","Equiv"]
     }

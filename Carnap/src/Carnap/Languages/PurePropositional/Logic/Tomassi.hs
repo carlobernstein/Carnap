@@ -121,4 +121,6 @@ tomassiPLCalc = mkNDCalc
     , ndProcessLine = hoProcessLineLemmon
     , ndProcessLineMemo = Just hoProcessLineLemmonMemo
     , ndNotation = tomassiPLNotation
+    , ndRuleNames = ["&I","&E","MP","MT","~I","DNI","~E","DNE","↔I","<->I","↔E","<->E"
+                    ,"∨I","vI","\\/I","∨E","vE","\\/E","As","CP","RAA","Pr"]
     }

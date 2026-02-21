@@ -222,4 +222,6 @@ zachFOLEqCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOL2019FormulaParserStrict
     , ndParseForm = thomasBolducAndZachFOL2019FormulaParserStrict
     , ndNotation = ndNotation zachPropEqCalc
+    , ndRuleNames = ["Comm","DN","Cond","Bicond","DeM","Assoc","Abs","Id","Dist","PR","Simp"
+                    ,"QN","QD","QSA","QSE","QX","VR"]
     }

@@ -132,4 +132,8 @@ cortensQLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver cortensQLFormulaParser
     , ndParseForm = cortensQLFormulaParser
     , ndNotation = cortensQLNotation
+    , ndRuleNames = ["AS","PR","/\\I","^I","∧I","/\\E","^E","∧E","->I","→I","->E","→E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","<->I","↔I"
+                    ,"<->E","↔E"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE"]
     }

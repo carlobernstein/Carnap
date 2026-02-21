@@ -196,4 +196,9 @@ winklerFOLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = winklerFOLNotation
+    , ndRuleNames = ["&I","&E","-I","~I","-E","~E",">I",">E","⊃I","⊃E","!?I","⊥I","X"
+                    ,"\\/E","\\/I","vE","vI","∨E","∨I","<>I","<>E","≡I","≡E"
+                    ,"DS","MT","DNE","TND","Com","Assoc","Impl","DN","DeM"
+                    ,"Idem","Trans","Exp","Dist","Equiv","R","AS","PR"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE","=I","=E","CQ"]
     }

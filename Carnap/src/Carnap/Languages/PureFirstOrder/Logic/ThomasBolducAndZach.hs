@@ -202,6 +202,7 @@ thomasBolducAndZachFOLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFLCalc
+    , ndRuleNames = ndRuleNames thomasBolducAndZachFOLCoreCalc ++ ["DS","MT","DNE","LEM","DeM","CQ"]
     }
 
 thomasBolducAndZachFOLCoreCalc = mkNDCalc
@@ -212,6 +213,11 @@ thomasBolducAndZachFOLCoreCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFLCalc
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","~I","-I","¬I"
+                    ,"~E","-E","¬E","IP","->I",">I","=>I","→I","->E","=>E",">E","→E","X"
+                    ,"vI","\\/I","|I","∨I","vE","\\/E","|E","∨E","<->I","↔I","<->E"
+                    ,"↔E","R"
+                    ,"∀I","@I","AI","∀E","@E","AE","∃I","3I","EI","∃E","3E","EE","=I","=E"]
     }
 
 thomasBolducAndZachFOL2019Calc = mkNDCalc
@@ -222,6 +228,7 @@ thomasBolducAndZachFOL2019Calc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOL2019FormulaParser
     , ndParseForm = thomasBolducAndZachFOL2019FormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFL2019Calc
+    , ndRuleNames = ndRuleNames thomasBolducAndZachFOLCoreCalc
     }
 
 thomasBolducAndZachFOLPlus2019Calc = mkNDCalc
@@ -232,4 +239,5 @@ thomasBolducAndZachFOLPlus2019Calc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOL2019FormulaParser
     , ndParseForm = thomasBolducAndZachFOL2019FormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFL2019Calc
+    , ndRuleNames = ndRuleNames thomasBolducAndZachFOLCoreCalc ++ ["DS","MT","DNE","LEM","DeM","CQ"]
     }

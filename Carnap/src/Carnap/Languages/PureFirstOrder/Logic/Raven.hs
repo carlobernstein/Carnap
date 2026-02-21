@@ -202,6 +202,7 @@ ravenFOLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = ndNotation P.ravenTFLCalc
+    , ndRuleNames = ndRuleNames ravenFOLCoreCalc ++ ["DS","MT","DNE","LEM","DeM","CQ"]
     }
 
 ravenFOLCoreCalc = mkNDCalc
@@ -212,6 +213,20 @@ ravenFOLCoreCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = ndNotation P.ravenTFLCalc
+    , ndRuleNames = ["AS","PR"
+                    ,"&I","/\\I","∧I"
+                    ,"&E","/\\E","∧E"
+                    ,"~I","-I","¬I"
+                    ,"_|_I","!?I","⊥I"
+                    ,"_|_E","!?E","⊥E"
+                    ,"~E","-E","¬E"
+                    ,"->I",">I","=>I","→I"
+                    ,"->E",">E","->E","→E"
+                    ,"vI","\\/I","|I","∨I"
+                    ,"vE","\\/E","|E","∨E"
+                    ,"<->I","↔I","<->E","↔E"
+                    ,"R"
+                    ,"∀I","@I","AI","∀E","@E","AE","∃I","3I","EI","∃E","3E","EE","=I","=E"]
     }
 
 ravenFOL2019Calc = mkNDCalc
@@ -222,6 +237,7 @@ ravenFOL2019Calc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOL2019FormulaParser
     , ndParseForm = thomasBolducAndZachFOL2019FormulaParser
     , ndNotation = ndNotation P.ravenTFL2019Calc
+    , ndRuleNames = ndRuleNames ravenFOLCoreCalc
     }
 
 ravenFOLPlus2019Calc = mkNDCalc
@@ -232,4 +248,5 @@ ravenFOLPlus2019Calc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOL2019FormulaParser
     , ndParseForm = thomasBolducAndZachFOL2019FormulaParser
     , ndNotation = ndNotation P.ravenTFL2019Calc
+    , ndRuleNames = ndRuleNames ravenFOLCoreCalc ++ ["DS","MT","DNE","LEM","DeM","CQ"]
     }

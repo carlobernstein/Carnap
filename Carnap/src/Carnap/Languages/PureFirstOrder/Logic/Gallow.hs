@@ -175,6 +175,10 @@ gallowPLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver gallowPLFormulaParser
     , ndParseForm = gallowPLFormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFLCalc
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","~I","-I","¬I","~E","-E","¬E"
+                    ,"->I",">I","=>I","→I","->E","=>E",">E","→E","vI","\\/I","|I","∨I","vE","\\/E","|E","∨E"
+                    ,"<->I","↔I","<->E","↔E","R","⊥I","!?I","_|_I","⊥E","!?E","_|_E"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE"]
     }
 
 gallowPLPlusCalc = mkNDCalc
@@ -185,4 +189,5 @@ gallowPLPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver gallowPLFormulaParser
     , ndParseForm = gallowPLFormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFLCalc
+    , ndRuleNames = ndRuleNames gallowPLCalc ++ ["DS","MT","DNE","LEM","DeM","CQ"]
     }

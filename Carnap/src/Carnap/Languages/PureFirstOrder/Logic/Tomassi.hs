@@ -118,4 +118,7 @@ tomassiQLCalc = mkNDCalc
     , ndParseForm = tomassiQLFormulaParser
     , ndParseSeq = parseSeqOver tomassiQLFormulaParser
     , ndNotation = tomassiPLNotation
+    , ndRuleNames = ["&I","&E","MP","MT","~I","DNI","~E","DNE","↔I","<->I","↔E","<->E"
+                    ,"∨I","vI","\\/I","∨E","vE","\\/E","As","CP","RAA","Pr"
+                    ,"UI","UE","EE","EI","=I","=E"]
     }

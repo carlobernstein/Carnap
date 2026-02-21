@@ -149,7 +149,7 @@ arthurNotation x = case runParser altparser 0 "" x of
           fallback = do c <- anyChar 
                         return [c]
 
-arthurQLCalc = mkNDCalc 
+arthurQLCalc = mkNDCalc
     { ndRenderer = NoRender
     , ndParseProof = parseArthurQLProof
     , ndProcessLine = hoProcessLineFitch
@@ -157,4 +157,7 @@ arthurQLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver arthurFOLFormulaParser
     , ndParseForm = arthurFOLFormulaParser
     , ndNotation = arthurNotation
+    , ndRuleNames = ["MP","MT","Simp","Conj","CS","Disj","DS","HS","DL"
+                    ,"CP","RA","DN","DM","BE","TR","MI","Supp","P","R"
+                    ,"UI","EI","UG","EG","QN","SI","RI"]
     }

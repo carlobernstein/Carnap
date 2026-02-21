@@ -73,4 +73,7 @@ ebelsDugganFOLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = ndNotation P.thomasBolducAndZachTFLCalc
+    , ndRuleNames = ndRuleNames P.thomasBolducAndZachTFLCalc ++ ["RAA","EFQ","DIL","HS","DNI","Comm","MC","↔ex","<>E","<->E","BCE","NC","BCT","TC","FA"
+                    ,"∀I","@I","AI","∀E","@E","AE","∃I","3I","EI","∃E","3E","EE","=I","=E","CQ","PR"
+                    ,"=S","=T"]
     }

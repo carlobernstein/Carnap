@@ -208,4 +208,7 @@ howardSnyderSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser howardSnyderOpts)
     , ndParseForm = purePropFormulaParser howardSnyderOpts
     , ndNotation = howardSnyderSLNotation
+    , ndRuleNames = ["Assume","MP","Conj","MT","HS","DS","Add","CD","Simp"
+                    ,"DN","Cont","DeM","MI","Ex","Com","Re","As"
+                    ,"ME","Dist","CP","RAA","p"]
     }

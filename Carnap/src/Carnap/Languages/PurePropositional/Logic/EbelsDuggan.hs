@@ -123,4 +123,5 @@ ebelsDugganTFLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = purePropFormulaParser thomasBolducZachOpts
     , ndNotation = thomasBolducAndZachNotation
+    , ndRuleNames = ndRuleNames thomasBolducAndZachTFLCalc ++ ["RAA","EFQ","DIL","HS","DNI","Comm","MC","↔ex","<>E","<->E","BCE","NC","BCT","TC","FA"]
     }

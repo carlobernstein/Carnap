@@ -215,6 +215,9 @@ logicBookSDCalc = mkNDCalc
     , ndParseSeq = extendedPropSeqParser
     , ndParseForm = purePropFormulaParser extendedLetters
     , ndNotation = logicBookNotation
+    , ndRuleNames = ["AS","PR","Assumption","&I","/\\I","∧I","&E","/\\E","∧E","CI","->I","→I",">I","⊃I","→E","⊃E","CE","->E"
+                    ,"→E",">E","~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<->I","<>I","↔I"
+                    ,"≡I","BE","<->E","<>E","↔E","≡E","R","A/<name>"]
     }
 
 data LogicBookSDPlus = SD LogicBookSD | MT | HS 
@@ -382,4 +385,5 @@ logicBookSDPlusCalc = mkNDCalc
     , ndParseSeq = extendedPropSeqParser
     , ndParseForm = purePropFormulaParser extendedLetters
     , ndNotation = logicBookNotation
+    , ndRuleNames = ndRuleNames logicBookSDCalc ++ ["MT","HS","DS","Com","Assoc","Impl","DN","DeM","Idem","Trans","Exp","Dist","Equiv"]
     }

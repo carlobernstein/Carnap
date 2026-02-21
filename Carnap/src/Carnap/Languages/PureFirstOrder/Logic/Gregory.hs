@@ -222,6 +222,10 @@ gregoryPDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver gregoryPDFormulaParser
     , ndParseForm = gregoryPDFormulaParser
     , ndNotation = dropOuterParens . gregoryNotation
+    , ndRuleNames = ["Assumption","&I","/\\I","∧I","&E","/\\E","∧E","CI","=>I","->I","→I",">I","⊃I","→E","⊃E","CE","->E"
+                    ,"→E",">E","~I","-I","¬I","~E","-E","¬E","vI","\\/I","|I","∨I","vE","\\/E","|E","∨E","BI","<=>I","<>I","<->I"
+                    ,"↔I","BE","<->E","<>E","<=>E","↔E","A","P","R","A/<name>"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE","A/EE","=I","=E"]
     }
 
 gregoryPDECalc = mkNDCalc
@@ -232,4 +236,5 @@ gregoryPDECalc = mkNDCalc
     , ndParseSeq = parseSeqOver gregoryPDFormulaParser
     , ndParseForm = gregoryPDFormulaParser
     , ndNotation = dropOuterParens . gregoryNotation
+    , ndRuleNames = ndRuleNames gregoryPDCalc ++ ["MT","HS","DS","Com","Assoc","Impl","DN","DeM","Idem","Trans","Exp","Dist","Equiv","QN"]
     }

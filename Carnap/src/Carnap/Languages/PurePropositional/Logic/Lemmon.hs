@@ -107,4 +107,6 @@ lemmonPropCalc = mkNDCalc
     , ndProcessLine = hoProcessLineLemmon
     , ndProcessLineMemo = Just hoProcessLineLemmonMemo
     , ndNotation = lemmonPropNotation
+    , ndRuleNames = ["&I","&E","MPP","MTT","DN","Df.↔","Df.<->"
+                    ,"∨I","vI","\\/I","∨E","vE","\\/E","A","CP","RAA","Pr"]
     }

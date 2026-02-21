@@ -114,4 +114,8 @@ landePropCalc = mkNDCalc
     , ndNotation = landePropNotation
     , ndParseForm = purePropFormulaParser landeOpts
     , ndParseSeq = parseSeqOver (purePropFormulaParser landeOpts)
+    , ndRuleNames = ["∧I","^I","/\\I","∧E","^E","/\\E","→E","->E"
+                    ,"¬¬E","~~E","--E","↔I","<->I","↔E","<->E","∨I"
+                    ,"vI","\\/I","∨E","vE","\\/E","→I","->I","¬I"
+                    ,"~I","-I","A"]
     }

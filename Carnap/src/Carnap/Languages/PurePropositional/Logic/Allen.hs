@@ -209,9 +209,12 @@ allenSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser magnusOpts)
     , ndParseForm = purePropFormulaParser magnusOpts
     , ndNotation = allenNotation
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","CI","->I","→I","→E","CE","->E","→E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<->I","↔I"
+                    ,"BE","<->E","↔E","RAA","R","DN","A/<name>"]
     }
 
-{-| A system for propositional logic resembling the basic 
+{-| A system for propositional logic resembling the basic
 proof system in Allen and Hand's Logic Primer, including some derived rules
 -}
 data AllenSLPlus = ASL AllenSL   | Hyp 
@@ -307,4 +310,5 @@ allenSLPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser magnusOpts)
     , ndParseForm = purePropFormulaParser magnusOpts
     , ndNotation = allenNotation
+    , ndRuleNames = ndRuleNames allenSLCalc ++ ["HYP","DIL","MT","MC","DeM"]
     }

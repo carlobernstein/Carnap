@@ -78,6 +78,10 @@ ichikawaJenkinsQLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver magnusFOLFormulaParser
     , ndParseForm = magnusFOLFormulaParser
     , ndNotation = ndNotation ichikawaJenkinsSLCalc
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","CI",">I","->I","⊃I","CE",">E","->E","⊃E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<>I","<->I","≡I"
+                    ,"BE","<>E","<->E","≡E","R","HYP","DIL","MT","Comm","DN","MC","≡ex","<>ex","<->ex","DeM","A/<name>"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE","=I","=E","QN"]
     }
 
 -------------------------

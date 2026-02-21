@@ -307,7 +307,7 @@ winklerNotation x = case runParser altParser 0 "" x of
 parseWinklerTFLProof :: RuntimeDeductionConfig PurePropLexicon (Form Bool) -> String -> [DeductionLine WinklerTFL PurePropLexicon (Form Bool)]
 parseWinklerTFLProof rtc = toDeductionFitch (parseWinklerTFL rtc) langParser
 
-winklerTFLCalc = mkNDCalc 
+winklerTFLCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseWinklerTFLProof
     , ndProcessLine = hoProcessLineFitch
@@ -315,4 +315,8 @@ winklerTFLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver langParser
     , ndParseForm = langParser
     , ndNotation = winklerNotation
+    , ndRuleNames = ["&I","&E","-I","~I","-E","~E",">I",">E","⊃I","⊃E","!?I","⊥I","X"
+                    ,"\\/E","\\/I","vE","vI","∨E","∨I","<>I","<>E","≡I","≡E"
+                    ,"DS","MT","DNE","TND","Com","Assoc","Impl","DN","DeM"
+                    ,"Idem","Trans","Exp","Dist","Equiv","R","AS","PR"]
     }

@@ -186,6 +186,9 @@ magnusSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser magnusOpts)
     , ndParseForm = purePropFormulaParser magnusOpts
     , ndNotation = magnusNotation
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","CI","->I","→I","CE","->E","→E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<->I","↔I"
+                    ,"BE","<->E","↔E","R","A/<name>"]
     }
 
 {-| A system for propositional logic resembling the proof system SL
@@ -308,5 +311,6 @@ magnusSLPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser magnusOpts)
     , ndParseForm = purePropFormulaParser magnusOpts
     , ndNotation = magnusNotation
+    , ndRuleNames = ndRuleNames magnusSLCalc ++ ["HS","DIL","MT","Comm","DN","MC","↔ex","<->ex","DeM"]
     }
 

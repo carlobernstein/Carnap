@@ -79,4 +79,9 @@ davisSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = purePropFormulaParser thomasBolducZachOpts
     , ndNotation = thomasBolducAndZachNotation
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","CI","->I","→I","CE","->E","→E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<->I","↔I"
+                    ,"BE","<->E","↔E","R","A/<name>"
+                    ,"HS","DIL","MT","Comm","DN","MC","↔ex","<->ex","DeM"
+                    ,"Taut"]
     }

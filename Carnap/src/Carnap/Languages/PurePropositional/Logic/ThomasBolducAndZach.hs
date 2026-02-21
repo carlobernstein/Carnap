@@ -256,7 +256,7 @@ thomasBolducAndZachNotation x = case runParser altParser 0 "" x of
           fallback = do c <- anyChar 
                         return [c]
 
-thomasBolducAndZachTFLCoreCalc = mkNDCalc 
+thomasBolducAndZachTFLCoreCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseThomasBolducAndZachTFLCoreProof
     , ndProcessLine = hoProcessLineFitch
@@ -264,9 +264,13 @@ thomasBolducAndZachTFLCoreCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = purePropFormulaParser thomasBolducZachOpts
     , ndNotation = thomasBolducAndZachNotation
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","~I","-I","¬I"
+                    ,"~E","-E","¬E","IP","->I",">I","=>I","→I","->E","=>E",">E","→E","X"
+                    ,"vI","\\/I","|I","∨I","vE","\\/E","|E","∨E","<->I","↔I","<->E"
+                    ,"↔E","R"]
     }
 
-thomasBolducAndZachTFLCalc = mkNDCalc 
+thomasBolducAndZachTFLCalc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseThomasBolducAndZachTFLProof
     , ndProcessLine = hoProcessLineFitch
@@ -274,9 +278,10 @@ thomasBolducAndZachTFLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZachOpts)
     , ndParseForm = purePropFormulaParser thomasBolducZachOpts
     , ndNotation = thomasBolducAndZachNotation
+    , ndRuleNames = ndRuleNames thomasBolducAndZachTFLCoreCalc ++ ["DS","MT","DNE","LEM","DeM"]
     }
 
-thomasBolducAndZachTFL2019Calc = mkNDCalc 
+thomasBolducAndZachTFL2019Calc = mkNDCalc
     { ndRenderer = FitchStyle StandardFitch
     , ndParseProof = parseThomasBolducAndZachTFL2019Proof
     , ndProcessLine = hoProcessLineFitch
@@ -284,4 +289,5 @@ thomasBolducAndZachTFL2019Calc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser thomasBolducZach2019Opts)
     , ndParseForm = purePropFormulaParser thomasBolducZach2019Opts
     , ndNotation = dropOuterParens
+    , ndRuleNames = ndRuleNames thomasBolducAndZachTFLCoreCalc
     }

@@ -120,4 +120,6 @@ montagueQCCalc = mkNDCalc
     , ndParseProof = parseMontagueQCProof
     , ndProcessLine = hoProcessLineMontague
     , ndProcessLineMemo = Just hoProcessLineMontagueMemo
+    , ndRuleNames = ["AS","PR","MP","MTP","MT","DD","DNE","DNI","DN","S","ADJ","ADD","BC","CB","CD","ID","D-"
+                    ,"UI","UD","EG","EI","QN","LL","EL","Id","Sm"]
     }

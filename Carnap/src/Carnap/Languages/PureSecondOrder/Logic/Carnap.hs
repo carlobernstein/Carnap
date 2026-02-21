@@ -91,11 +91,15 @@ parseMSOLProof :: RuntimeDeductionConfig MonadicallySOLLex (Form Bool)
                     -> String -> [DeductionLine MSOLogic MonadicallySOLLex (Form Bool)]
 parseMSOLProof rtc = toDeductionMontague (parseMSOLogic rtc) msolFormulaParser
 
-msolCalc = mkNDCalc 
+msolCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseMSOLProof
     , ndProcessLine = hoProcessLineMontague
     , ndProcessLineMemo = Just hoProcessLineMontagueMemo
+    , ndRuleNames = ["AS","PR","MP","MTP","MT","DD","DNE","DNI","DN","S","ADJ","ADD","BC","CB","CD","ID","D-"
+                    ,"UI","UD","EG","ED","QN","LL","EL","Id","Sm"
+                    ,"ABS","APP"
+                    ]
     }
 
 -------------------------------------------
@@ -186,9 +190,13 @@ parsePSOLProof :: RuntimeDeductionConfig PolyadicallySOLLex (Form Bool)
                     -> String -> [DeductionLine PSOLogic PolyadicallySOLLex (Form Bool)]
 parsePSOLProof rtc = toDeductionMontague (parsePSOLogic rtc) psolFormulaParser
 
-psolCalc = mkNDCalc 
+psolCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parsePSOLProof
     , ndProcessLine = hoProcessLineMontague
     , ndProcessLineMemo = Just hoProcessLineMontagueMemo
+    , ndRuleNames = ["AS","PR","MP","MTP","MT","DD","DNE","DNI","DN","S","ADJ","ADD","BC","CB","CD","ID","D-"
+                    ,"UI","UD","EG","ED","QN","LL","EL","Id","Sm"
+                    ,"ABS","APP"
+                    ]
     }

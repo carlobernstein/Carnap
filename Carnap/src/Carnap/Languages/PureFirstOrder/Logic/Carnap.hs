@@ -157,6 +157,8 @@ folCalc = mkNDCalc
     , ndParseProof = parseFOLProof
     , ndProcessLine = hoProcessLineMontague
     , ndProcessLineMemo = Just hoProcessLineMontagueMemo
+    , ndRuleNames = ["AS","PR","MP","MTP","MT","DD","DNE","DNI","DN","S","ADJ","ADD","BC","CB","CD","ID","D-"
+                    ,"UI","UD","EG","ED","QN","LL","EL","Id","Sm"]
     }
 
 folCalcNonC = mkNDCalc
@@ -164,4 +166,5 @@ folCalcNonC = mkNDCalc
     , ndParseProof = parseFOLNonCProof
     , ndProcessLine = hoProcessLineMontague
     , ndProcessLineMemo = Just hoProcessLineMontagueMemo
+    , ndRuleNames = ndRuleNames folCalc ++ ["ID"]
     }

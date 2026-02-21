@@ -254,7 +254,7 @@ hardegreeNotation = map fixSym . dropOuterParens
           fixSym '⊥' = '⨳'
           fixSym x = x
 
-hardegreeSLCalc = mkNDCalc 
+hardegreeSLCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeSLProof
     , ndProcessLine = processLineHardegree
@@ -262,9 +262,14 @@ hardegreeSLCalc = mkNDCalc
     , ndNotation  = hardegreeNotation
     , ndParseSeq = parseSeqOver (purePropFormulaParser hardegreeOpts)
     , ndParseForm = purePropFormulaParser hardegreeOpts
+    , ndRuleNames = ["&I","&O","~&I","~&O","&D"
+                    ,"->I","→I","->O","→O","~->I","~→I","~->O","~→O","CD"
+                    ,"∨I","vI","\\/I","∨O","vO","\\/O","~∨I","~vI","~\\/I","~∨O","~vO","~\\/O","∨D","vD","\\/D"
+                    ,"<->I","↔I","<->O","↔O","~<->I","~↔I","~<->O","~↔O","<->D","↔D"
+                    ,"!?I","!?O","ID","~D","SC","DN","DD","REP","AS","PR"]
     }
 
-hardegreeSL2006Calc = mkNDCalc 
+hardegreeSL2006Calc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeSL2006Proof
     , ndProcessLine = processLineHardegree
@@ -272,4 +277,10 @@ hardegreeSL2006Calc = mkNDCalc
     , ndNotation  = hardegreeNotation
     , ndParseSeq = parseSeqOver (purePropFormulaParser hardegreeOpts)
     , ndParseForm = purePropFormulaParser hardegreeOpts
+    , ndRuleNames = ["∨D","vD","\\/D","~\\/O","~∨O","~vO"
+                    ,"&I","&O","~&O","&D"
+                    ,"->O","→O","~->O","~→O","CD"
+                    ,"∨I","vI","\\/I","∨O","vO","\\/O"
+                    ,"<->I","↔I","<->O","↔O","~<->O","~↔O","<->D","↔D"
+                    ,"!?I","!?O","ID","~D","SC","DN","DD","REP","AS","PR"]
     }

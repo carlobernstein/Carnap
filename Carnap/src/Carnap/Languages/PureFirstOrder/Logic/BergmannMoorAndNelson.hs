@@ -116,6 +116,10 @@ logicBookPDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver bergmannMoorAndNelsonPDFormulaParser
     , ndParseForm = bergmannMoorAndNelsonPDFormulaParser
     , ndNotation = ndNotation logicBookSDCalc
+    , ndRuleNames = ["AS","PR","Assumption","&I","/\\I","∧I","&E","/\\E","∧E","CI","->I","→I",">I","⊃I","→E","⊃E","CE","->E"
+                    ,"→E",">E","~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<->I","<>I","↔I"
+                    ,"≡I","BE","<->E","<>E","↔E","≡E","R","A/<name>"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE","A/EE"]
     }
 
 data LogicBookPDPlus = PDtoPDP LogicBookPD | SDPlus LogicBookSDPlus | QN1 | QN2 | QN3 | QN4
@@ -253,6 +257,7 @@ logicBookPDPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver bergmannMoorAndNelsonPDFormulaParser
     , ndParseForm = bergmannMoorAndNelsonPDFormulaParser
     , ndNotation = ndNotation logicBookSDPlusCalc
+    , ndRuleNames = ndRuleNames logicBookPDCalc ++ ["MT","HS","DS","Com","Assoc","Impl","DN","DeM","Idem","Trans","Exp","Dist","Equiv","QN"]
     }
 
 data LogicBookPDE = PDtoPDE LogicBookPD | II | IE1 | IE2
@@ -351,6 +356,7 @@ logicBookPDECalc = mkNDCalc
     , ndParseSeq = parseSeqOver bergmannMoorAndNelsonPDEFormulaParser
     , ndParseForm = bergmannMoorAndNelsonPDEFormulaParser
     , ndNotation = ndNotation logicBookSDPlusCalc
+    , ndRuleNames = ndRuleNames logicBookPDCalc ++ ["=I","=E"]
     }
 
 data LogicBookPDEPlus = PDPtoPDEP LogicBookPDPlus | PDEtoPDEP LogicBookPDE
@@ -436,4 +442,5 @@ logicBookPDEPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver bergmannMoorAndNelsonPDEFormulaParser
     , ndParseForm = bergmannMoorAndNelsonPDEFormulaParser
     , ndNotation = ndNotation logicBookSDPlusCalc
+    , ndRuleNames = ndRuleNames logicBookPDECalc ++ ["MT","HS","DS","Com","Assoc","Impl","DN","DeM","Idem","Trans","Exp","Dist","Equiv","QN"]
     }

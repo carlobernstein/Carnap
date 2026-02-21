@@ -312,6 +312,13 @@ gamutNDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver gamutNDFormulaParser
     , ndParseForm = gamutNDFormulaParser
     , ndNotation = gamutNotation
+    , ndRuleNames = ["I∧","I/\\","I^","E∧","E/\\","E^"
+                    ,"E→","E->","I→","I->"
+                    ,"I¬","I~","I-","E¬","E~","E-"
+                    ,"E∨","E\\/","Ev","I∨","I\\/","Iv"
+                    ,"repetition","rep","assumption","as"
+                    ,"EFSQ","~~","¬¬","--"
+                    ,"IA","I∀","EA","E∀","IE","I∃","EE","E∃","I=","E="]
     }
 
 gamutNDPlusCalc = mkNDCalc
@@ -322,4 +329,6 @@ gamutNDPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver gamutNDFormulaParser
     , ndParseForm = gamutNDFormulaParser
     , ndNotation = gamutNotation
+    , ndRuleNames = ndRuleNames gamutNDCalc ++ ["LEM","LNC","DN","LCC","LCD","LAC","LAD","LDD","LDC","DMOR","DMAND","MT","PDS","NDS"
+                    ,"NC","DC","CP","CV1","CV2","CV3","CV4","Ba","Ce","Da","Fe","PASS","DMSOME","DMALL"]
     }

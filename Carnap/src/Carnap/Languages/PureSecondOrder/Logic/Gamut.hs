@@ -128,4 +128,12 @@ gamutNDSOLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver gamutFormulaParser
     , ndParseForm = gamutFormulaParser
     , ndNotation = gamutNotation
+    , ndRuleNames = ["I∧","I/\\","I^","E∧","E/\\","E^","E→","E->","I→","I->","I¬","I~","I-","E¬","E~","E-"
+                    ,"E∨","E\\/","Ev","I∨","I\\/","Iv","repetition","rep","assumption","as"
+                    ,"EFSQ","~~","¬¬","--"
+                    ,"LEM","LNC","DN","LCC","LCD","LAC","LAD","LDD","LDC","DMOR","DMAND","MT","PDS","NDS"
+                    ,"IA","I∀","EA","E∀","IE","I∃","EE","E∃","I=","E="
+                    ,"NC","DC","CP","CV1","CV2","CV3","CV4","Ba","Ce","Da","Fe","PASS","DMSOME","DMALL"
+                    ,"PR","ABS","APP"
+                    ]
     }

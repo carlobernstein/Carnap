@@ -259,6 +259,11 @@ gamutMPNDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gamutOpts)
     , ndParseForm = purePropFormulaParser gamutOpts
     , ndNotation = gamutNotation
+    , ndRuleNames = ["I∧","I/\\","I^","E∧","E/\\","E^"
+                    ,"E→","E->","I→","I->"
+                    ,"I¬","I~","I-","E¬","E~","E-"
+                    ,"E∨","E\\/","Ev","I∨","I\\/","Iv"
+                    ,"repetition","rep","assumption","as"]
     }
 
 gamutIPNDCalc = mkNDCalc
@@ -269,6 +274,7 @@ gamutIPNDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gamutOpts)
     , ndParseForm = purePropFormulaParser gamutOpts
     , ndNotation = gamutNotation
+    , ndRuleNames = ndRuleNames gamutMPNDCalc ++ ["EFSQ"]
     }
 
 gamutPNDCalc = mkNDCalc
@@ -279,6 +285,7 @@ gamutPNDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gamutOpts)
     , ndParseForm = purePropFormulaParser gamutOpts
     , ndNotation = gamutNotation
+    , ndRuleNames = ndRuleNames gamutIPNDCalc ++ ["~~","¬¬","--"]
     }
 
 gamutPNDPlusCalc = mkNDCalc
@@ -289,4 +296,5 @@ gamutPNDPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gamutOpts)
     , ndParseForm = purePropFormulaParser gamutOpts
     , ndNotation = gamutNotation
+    , ndRuleNames = ndRuleNames gamutPNDCalc ++ ["LEM","LNC","DN","LCC","LCD","LAC","LAD","LDD","LDC","DMOR","DMAND","MT","PDS","NDS"]
     }

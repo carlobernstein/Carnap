@@ -81,4 +81,8 @@ davisQLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver thomasBolducAndZachFOLFormulaParser
     , ndParseForm = thomasBolducAndZachFOLFormulaParser
     , ndNotation = ndNotation davisSLCalc
+    , ndRuleNames = ["AS","PR","&I","/\\I","∧I","&E","/\\E","∧E","CI","->I","→I","CE","->E","→E"
+                    ,"~I","-I","¬I","~E","-E","¬E","vI","\\/I","∨I","vE","\\/E","∨E","BI","<->I","↔I"
+                    ,"BE","<->E","↔E","R","A/<name>","HS","DIL","MT","Comm","DN","MC","↔ex","<->ex","DeM","Taut"
+                    ,"∀I","AI","∀E","AE","∃I","EI","∃E","EE","=I","=E","QN"]
     }

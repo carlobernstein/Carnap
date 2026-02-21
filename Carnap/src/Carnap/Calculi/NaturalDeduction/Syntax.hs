@@ -294,6 +294,7 @@ data NaturalDeductionCalc r lex sem = NaturalDeductionCalc
         , ndParseSeq :: (Sequentable lex, Typeable sem,  ParsableLex sem lex) => Parsec String () (ClassicalSequentOver lex (Sequent sem))
         , ndParseForm :: ParsableLex sem lex => Parsec String () (FixLang lex sem)
         , ndNotation :: String -> String
+        , ndRuleNames :: [String]
         }
 
 mkNDCalc :: NaturalDeductionCalc r lex sem
@@ -301,6 +302,7 @@ mkNDCalc = NaturalDeductionCalc
     { ndRenderer = NoRender
     , ndProcessLineMemo = Nothing
     , ndNotation = id
+    , ndRuleNames = []
     , ndParseForm = langParser
     , ndParseSeq = parseSeqOver langParser
     }

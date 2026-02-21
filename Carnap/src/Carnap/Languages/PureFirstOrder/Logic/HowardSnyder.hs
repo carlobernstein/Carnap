@@ -127,4 +127,8 @@ howardSnyderPLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver howardSnyderPLFormulaParser
     , ndParseForm = howardSnyderPLFormulaParser
     , ndNotation = ndNotation P.howardSnyderSLCalc
+    , ndRuleNames = ["Assume","MP","Conj","MT","HS","DS","Add","CD","Simp"
+                    ,"DN","Cont","DeM","MI","Ex","Com","Re","As"
+                    ,"ME","Dist","CP","RAA","p"
+                    ,"UG","UI","EG","EI","QN","LL","Sm","Id"]
     }

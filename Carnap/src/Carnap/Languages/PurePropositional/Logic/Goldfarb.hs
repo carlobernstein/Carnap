@@ -132,4 +132,5 @@ goldfarbPropNDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser gamutOpts)
     , ndParseForm = purePropFormulaParser gamutOpts
     , ndNotation = goldfarbPropNDNotation
+    , ndRuleNames = ["NDE","MP","MT","DN","CI","CE","DI","DE","BI","BE","RA","RC","I","P","D"]
     }

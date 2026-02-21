@@ -104,11 +104,20 @@ parseHardegreeMPLProof ::  RuntimeDeductionConfig IndexedModalFirstOrderLex (For
                             -> [DeductionLine HardegreeMPL IndexedModalFirstOrderLex (Form Bool)]
 parseHardegreeMPLProof ders = toDeductionHardegree (parseHardegreeMPL ders) (hardegreeMPLFormulaParser)
 
-hardegreeMPLCalc = mkNDCalc 
+hardegreeMPLCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parseHardegreeMPLProof
     , ndProcessLine = hoProcessLineHardegree
     , ndProcessLineMemo = Just hoProcessLineHardegreeMemo
     , ndParseSeq = indexedModalFOSeqParser
     , ndNotation  = hardegreeNotation
+    , ndRuleNames = ["AS","PR","REP","&I","&O","~&I","~&O","/\\I","/\\O","-/\\I","-/\\O","~/\\I","~/\\O"
+                    ,"->I","->O","-->I","-->O","~->I","~->O","→I","→O","-→I","-→O","~→I","~→O"
+                    ,"!?I","!?O","vI","vO","-vI","-vO","~vI","~vO","\\/I","\\/O","~\\/I","~\\/O"
+                    ,"<->I","<->O","-<->I","-<->O","~<->I","~<->O","↔I","↔O","-↔I","-↔O","~↔I","~↔O"
+                    ,"ID","DN","&D","DD","CD","SC","\\/ID","vID"
+                    ,"ND","[]D","DiaD","<>D","<>O","[]O","<>I","MN"
+                    ,"∀I","AI","UD","∀O","AO","∃I","EI","∃O","EO"
+                    ,"~∃O","-∃O","-EO","~EO","~∀O","~AO","-∀O","-AO"
+                    ]
     }

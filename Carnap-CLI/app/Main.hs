@@ -24,7 +24,7 @@ import Carnap.Languages.ModalPropositional.Logic (ofModalPropSys)
 --  CLI Parsing   --
 --------------------
 
-data Command = ListSystems | Check String String
+data Command = ListSystems | ListRules String | Check String String
 
 main :: IO ()
 main = do
@@ -34,6 +34,11 @@ main = do
         Left err -> dieJSON err
         Right ListSystems ->
             BL.putStrLn $ encode $ object ["systems" .= allSystemNames]
+        Right (ListRules sys) ->
+            case getRuleNames sys of
+                Nothing    -> dieJSON $ "Unknown system: " ++ sys
+                Just names -> BL.putStrLn $ encode $
+                    object ["system" .= sys, "rules" .= names]
         Right (Check sys proofArg) -> do
             proofText <- if proofArg == "-"
                          then getContents
@@ -50,10 +55,12 @@ dieJSON msg = do
 parseArgs :: [String] -> Either String Command
 parseArgs args
     | "--list-systems" `elem` args = Right ListSystems
-    | otherwise = case (lookupArg "--system" args, lookupArg "--proof" args) of
-        (Nothing, _) -> Left "Missing required argument: --system <name>"
-        (_, Nothing) -> Left "Missing required argument: --proof <text>"
-        (Just sys, Just proof) -> Right (Check sys proof)
+    | otherwise = case lookupArg "--list-rules" args of
+        Just sys -> Right (ListRules sys)
+        Nothing  -> case (lookupArg "--system" args, lookupArg "--proof" args) of
+            (Nothing, _) -> Left "Missing required argument: --system <name>"
+            (_, Nothing) -> Left "Missing required argument: --proof <text>"
+            (Just sys, Just proof) -> Right (Check sys proof)
 
 lookupArg :: String -> [String] -> Maybe String
 lookupArg _ []       = Nothing
@@ -82,6 +89,17 @@ checkProof sys proofText = msum
     , ofSetTheorySys    (runCheck sys proofText) sys
     , ofDefiniteDescSys (runCheck sys proofText) sys
     , ofModalPropSys    (runCheck sys proofText) sys
+    ]
+
+-- Look up valid rule names for a system.
+getRuleNames :: String -> Maybe [String]
+getRuleNames sys = msum
+    [ ofPropSys         ndRuleNames sys
+    , ofFOLSys          ndRuleNames sys
+    , ofSecondOrderSys  ndRuleNames sys
+    , ofSetTheorySys    ndRuleNames sys
+    , ofDefiniteDescSys ndRuleNames sys
+    , ofModalPropSys    ndRuleNames sys
     ]
 
 -- Core proof-checking logic. No type signature — GHC infers a polymorphic

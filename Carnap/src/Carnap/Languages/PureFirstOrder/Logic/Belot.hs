@@ -155,6 +155,11 @@ belotPDCalc = mkNDCalc
     , ndParseSeq = parseSeqOver belotPDFormulaParser
     , ndParseForm = belotPDFormulaParser
     , ndNotation = belotNotation
+    , ndRuleNames = ["(&I)","(/\\I)","(∧I)","(&E)","(/\\E)","(∧E)","(CI)","(->I)","(→I)","(>I)","(⊃I)","(→E)","(⊃E)","(CE)","(->E)"
+                    ,"(>E)","(~I)","(-I)","(¬I)","(~E)","(-E)","(¬E)","(vI)","(\\/I)","(∨I)","(vE)","(\\/E)","(∨E)","(BI)","(<->I)","(<>I)","(↔I)"
+                    ,"(≡I)","(BE)","(<->E)","(<>E)","(↔E)","(≡E)","R","A","PR","A/<name>"
+                    ,"(∀I)","(AI)","(∀E)","(AE)","(∃I)","(EI)","(∃E)","(EE)"
+                    ,"A/EE","A/>I","A/->I","A/=I","Assumption"]
     }
 
 data BelotPDPlus = PDtoPDP BelotPD | SDPlus BelotSDPlus | QN1 | QN2 | QN3 | QN4
@@ -292,6 +297,7 @@ belotPDPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver belotPDFormulaParser
     , ndParseForm = belotPDFormulaParser
     , ndNotation = belotNotation
+    , ndRuleNames = ndRuleNames belotPDCalc ++ ["(MT)","(HS)","(DS)","(Com)","(Assoc)","(Impl)","(DN)","(DeM)","(Idem)","(Trans)","(Exp)","(Dist)","(Equiv)","(QN)"]
     }
 
 data BelotPDE = PDtoPDE BelotPD | II | IE1 | IE2
@@ -390,6 +396,7 @@ belotPDECalc = mkNDCalc
     , ndParseSeq = parseSeqOver belotPDEFormulaParser
     , ndParseForm = belotPDEFormulaParser
     , ndNotation = belotNotation
+    , ndRuleNames = ndRuleNames belotPDCalc ++ ["(=I)","(=E)"]
     }
 
 data BelotPDEPlus = PDPtoPDEP BelotPDPlus | PDEtoPDEP BelotPDE
@@ -475,4 +482,5 @@ belotPDEPlusCalc = mkNDCalc
     , ndParseSeq = parseSeqOver belotPDEFormulaParser
     , ndParseForm = belotPDEFormulaParser
     , ndNotation = belotNotation
+    , ndRuleNames = ndRuleNames belotPDECalc ++ ["(MT)","(HS)","(DS)","(Com)","(Assoc)","(Impl)","(DN)","(DeM)","(Idem)","(Trans)","(Exp)","(Dist)","(Equiv)","(QN)"]
     }

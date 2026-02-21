@@ -220,4 +220,12 @@ bonevacSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser bonevacOpts)
     , ndParseForm = purePropFormulaParser bonevacOpts
     , ndNotation = bonevacNotation
+    , ndRuleNames = ["AIP","ACP","A","&I","/\\I","^I","&E","/\\E","^E"
+                    ,"~~","--","¬¬","DN","R","->E*","→E*","MT","->E","→E"
+                    ,"MP","<->I","↔I","-><->","→↔","<->E*","↔E*","<->E","↔E"
+                    ,"vI","\\/I","vE*","\\/E*","∨E*","DS","∨I","vE","\\/E"
+                    ,"∨E","CD","!","~&","-&","~/\\","-/\\","~^","-&","¬∧","¬&"
+                    ,"~v","-v","~\\/","-\\/","¬∨","~->","-->","¬→","~<->","-<->"
+                    ,"¬↔","->v","->\\/","→∨","&C","/\\C","^C","∧C"
+                    ,"&A","/\\A","^A","∧A","vC","\\/C","∨C","vA","\\/A","∨A"]
     }

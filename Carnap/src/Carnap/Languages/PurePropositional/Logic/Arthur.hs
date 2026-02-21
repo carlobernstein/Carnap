@@ -165,4 +165,6 @@ arthurSLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver (purePropFormulaParser arthurOpts)
     , ndParseForm = purePropFormulaParser arthurOpts
     , ndNotation = arthurNotation
+    , ndRuleNames = ["MP","MT","Simp","Conj","CS","Disj","DS","HS","DL"
+                    ,"CP","RA","DN","DM","BE","TR","MI","Supp","P","R"]
     }

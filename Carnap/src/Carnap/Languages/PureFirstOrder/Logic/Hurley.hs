@@ -158,4 +158,8 @@ hurleyPLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver hurleyPLFormulaParser
     , ndParseForm = hurleyPLFormulaParser
     , ndNotation = ndNotation P.hurleySLCalc
+    , ndRuleNames = ["MP","MT","DS","HS","CD","Simp","Conj","Add"
+                    ,"DM","Com","Assoc","Dist","DN","Trans","Exp"
+                    ,"Impl","Taut","Equiv","CP","ACP","IP","AIP"
+                    ,"UI","UG","EG","EI","Id"]
     }

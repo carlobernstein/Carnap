@@ -163,11 +163,12 @@ parsePropLogicProofNL rtc = toDeductionMontague (parsePropLogic rtc) englishProp
 
 parsePropLogicProofNLStrict rtc = toDeductionMontague (parsePropLogic rtc) englishPropFormulaParserStrict
 
-propCalc = mkNDCalc 
+propCalc = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parsePropLogicProof
     , ndProcessLine = processLineMontague
     , ndProcessLineMemo = Nothing
+    , ndRuleNames = ["AS","PR","MP","MTP","MT","DD","DNE","DNI","DN","S","ADJ","ADD","BC","CB","CD","ID","D-"]
     }
 
 propCalcNonC = mkNDCalc
@@ -175,15 +176,17 @@ propCalcNonC = mkNDCalc
     , ndParseProof = parsePropLogicNonCProof
     , ndProcessLine = processLineMontague
     , ndProcessLineMemo = Nothing
+    , ndRuleNames = ndRuleNames propCalc
     }
 
-propCalcStrict = mkNDCalc 
+propCalcStrict = mkNDCalc
     { ndRenderer = MontagueStyle
     , ndParseProof = parsePropLogicProofStrict
     , ndProcessLine = processLineMontague
     , ndProcessLineMemo = Nothing
     , ndParseForm = purePropFormulaParser standardLettersStrict
     , ndParseSeq = parseSeqOver (purePropFormulaParser standardLettersStrict)
+    , ndRuleNames = ndRuleNames propCalc
     }
 
 nlNotation :: String -> String 
@@ -209,6 +212,7 @@ propCalcNL = mkNDCalc
     , ndParseForm = englishPropFormulaParser
     , ndParseSeq = parseSeqOver englishPropFormulaParser
     , ndNotation = nlNotation
+    , ndRuleNames = ndRuleNames propCalc
     }
 
 propCalcNLStrict = mkNDCalc
@@ -219,6 +223,7 @@ propCalcNLStrict = mkNDCalc
     , ndParseForm = englishPropFormulaParserStrict
     , ndParseSeq = parseSeqOver englishPropFormulaParserStrict
     , ndNotation = nlNotation
+    , ndRuleNames = ndRuleNames propCalc
     }
 
 propTreeCalc :: TableauCalc PurePropLexicon (Form Bool) PropLogic

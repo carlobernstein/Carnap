@@ -123,4 +123,8 @@ hausmanPLCalc = mkNDCalc
     , ndParseSeq = parseSeqOver hausmanPLFormulaParser
     , ndParseForm = hausmanPLFormulaParser
     , ndNotation = ndNotation P.hausmanSLCalc
+    , ndRuleNames = ["MP","Conj","MT","HS","DS","Add","CD","Simp"
+                    ,"DN","Contra","DeM","Impl","Exp","Comm","Taut","Assoc"
+                    ,"Equiv","Dist","CP","IP","AP","p"
+                    ,"UG","UI","EG","EI","QN","ID","IR"]
     }
